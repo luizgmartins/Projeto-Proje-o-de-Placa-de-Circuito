@@ -1,6 +1,6 @@
 # Projeto - Projeção de Placa de Circuito Impresso
 
-**Descrição**: Projeto da disciplina de Processamento Digital de Imagem da UFPE. Consiste na utilização da biblioteca opencv em Python para projetar o lado oposto de uma placa de circuito impresso sobre a imagem em tempo real da placa.
+**Descrição**: Projeto da disciplina de Processamento Digital de Imagem da UFPE, ministrada pelo professor João Marcelo. Consiste na utilização da biblioteca opencv em Python para projetar o lado oposto de uma placa de circuito impresso sobre a imagem em tempo real da placa.
 
 
 ----------------------------
@@ -41,12 +41,27 @@ Assim conseguimos identificar a placa de circuito nos frames de vídeo utilizand
 ----------------------------
 ## Resultado
 
-O resultado do projeto pode ser visto no vídeo clicando na imagem abaixo:
+A ideia do projeto é observar a trilhas da placa sobre os componentes da mesma ou vice-versa, observando ambos os lados da placa em uma mesma imagem de vídeo. O resultado do projeto pode ser visto no vídeo clicando na imagem abaixo:
+
 [![](https://github.com/luizgmartins/Projeto-Projecao-Placa-de-Circuito/blob/main/Imagens/video.png)](https://drive.google.com/file/d/1wOQVBMZd7nhXUHOH6VM-d1r9bMO1hgBL/view?usp=sharing)
 
 ----------------------------
 ## Observações
 
+* Alguns momentos o programa apresentou dificuldades para encontrar a homografia e gerar uma imagem em perspectiva fazendo com que a placa não fosse projetada sobre o frame de vídeo de forma correta. A distorção poderia ser evitada se o programa conseguisse sempre identificar os melhores pontos correspondentes.
+* Foi observado que as correspondências entre os pontos dependem bastante da qualidade da imagem que se encontra salva no banco de imagens, pois a iluminação mais baixa ou uma mudança grande no programa de edição poderia levar a falhas na obtenção da matriz de homografia.
+* A resolução e foco da câmera utilizada como webcam também atrapalham na obtenção dos pontos correspondentes, mas apesar das dificuldades o programa apresentou resultados muito bons.
+* Algumas placas apresentaram resultados bem melhores do que outras. Isso nos levar a concluir que o formato das placas e quantidade e disposição dos componentes sobre elas também influenciam na obtenção da homografia.
+* Uma das dificuldades do projeto ficou por conta da criação do banco de imagens, pois era preciso tirar fotos da placa da mesma distância e ângulo em relação a câmera e a edição deveria recortar as imagens de frente e verso da placa e aplicar transformações para que as imagens ficassem do mesmo tamanho e com componentes nos mesmo locais. Caso não fosse feito de forma correta a imagem projetada seria deslocada em relação aos componentes da placa vista na webcam.
+* Uma ideia de projeto futuro é utilização de outros tipos de descritores além do SIFT. No caso fazer uma comparação entre o que foi utilizado no projeto e outros tipos de descritores como ORB, SURF, etc.
 
 ----------------------------
 ## Referências
+
+- https://blog.cedrotech.com/opencv-uma-breve-introducao-visao-computacional-com-python
+- https://docs.opencv.org/4.x/dc/dc3/tutorial_py_matcher.html
+- https://www.youtube.com/watch?v=I8tHLZDDHr4&list=PLfUs-MEc_zl92oNhomHK1M9yYAIeWz1C9&index=3&ab_channel=Pysource
+- https://www.youtube.com/watch?v=UquTAf_9dVA&ab_channel=sentdex
+- https://www.pyimagesearch.com/2016/03/07/transparent-overlays-with-opencv/
+- https://www.geeksforgeeks.org/perspective-transformation-python-opencv/
+- https://docs.opencv.org/4.x/d9/dc8/tutorial_py_trackbar.html
