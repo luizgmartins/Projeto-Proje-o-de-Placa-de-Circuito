@@ -32,7 +32,7 @@ Após obter os descritores e pontos chaves utilizando feature matching e seleç�
 ----------------------------
 ## Perspective
 
-Já com a matriz obtida com a homografia foi necessário utilizar a transformação em perspectiva para levar a imagem do banco de imagens na imagens para sua correspondência no frame de vídeo. Inicialmente foi utilizada a função cv2.perspectiveTransform() que utiliza a matriz da homografia e os pontos extremos da imagem do frame de vídeo para gerar a transformação em perspectiva que será utilizada para criar uma borda branca ao redor da imagem da placa que foi identificada no frame de vídeo.
+Já com a matriz obtida com a homografia foi necessário utilizar a transformação em perspectiva para levar a imagem do banco de imagens para sua correspondência no frame de vídeo. Inicialmente, foi utilizada a função cv2.perspectiveTransform() que utiliza a matriz da homografia e os pontos extremos da imagem do frame de vídeo para gerar a transformação em perspectiva que será utilizada para criar uma borda branca ao redor da imagem da placa que foi identificada no frame de vídeo.
 
 Como a ideia seria pegar a imagem do lado oposto da placa que vemos na webcam e projetar essa imagem sobre a placa que vemos na webcam, então para isso foi utilizada a função cv2.warpPerspective() que utiliza a imagem do lado oposto da placa (imagem espelhada) e a matriz de homografia para levar a imagem do lado oposto da placa exatamente sobre a placa.
 
